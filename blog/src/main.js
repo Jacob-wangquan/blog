@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import App from './App';
 import VueRouter from 'vue-router';
+import VueResource from 'vue-resource';
 import home from 'components/home/home';
 import article from 'components/article/article';
 import project from 'components/project/project';
@@ -9,6 +10,7 @@ import 'common/stylus/index.styl';
 
 // 安装使用
 Vue.use(VueRouter);
+Vue.use(VueResource);
 
 // 用router的话就不能使用new Vue的方式
 /* eslint-disable no-new */
