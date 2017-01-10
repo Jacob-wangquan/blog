@@ -1,6 +1,5 @@
 <template>
-  <div class="article-wrapper">
-    <split></split>
+  <div class="article-wrapper" v-el:article-wrapper>
     <ul class="article-lists">
       <li v-for="article in articles" class="article-item">
         <p class="title">{{article.title}}</p>
@@ -14,6 +13,7 @@
 <script type="text/ecmascript-6">
   //  import Vue from 'vue';
   import split from 'components/split/split';
+  import BScroll from 'better-scroll';
   const ERR_OK = 0;
 
   export default {
@@ -27,9 +27,16 @@
         response = response.body;
         if (response.errno === ERR_OK) {
           this.articles = response.data[0].articles;
-          console.log(this.articles);
+          this.$nextTick(() => {
+            this._initScroll();
+          });
         }
       });
+    },
+    methods: {
+      _initScroll() {
+        this.articleScroll = new BScroll(this.$els.articleWrapper, {});
+      }
     },
     components: {
       split
@@ -39,26 +46,30 @@
 
 <style lang="stylus" rel="stylesheet/stylus">
   .article-wrapper
+    position :absolute
+    top: 88px
+    bottom:0
+    overflow :hidden
     width: 100%
     .article-lists
-      width:100%
+      width: 100%
       .article-item
-        width:100%
+        width: 100%
         overflow: hidden
         background: #fff
-        color:rgb(7,17,27,0.8)
+        color: rgb(7, 17, 27, 0.8)
         .title
-          width:96%
+          width: 96%
           height: 22px
-          padding:4px 8px
-          line-height :22px
-          overflow:hidden
-          text-overflow : ellipsis
-          white-space : nowrap
-          font-weight:500
-          font-size:14px
+          padding: 4px 8px
+          line-height: 22px
+          overflow: hidden
+          text-overflow: ellipsis
+          white-space: nowrap
+          font-weight: 500
+          font-size: 14px
         .introduction
-          line-height :18px
-          padding:4px 8px
-          font-size:12px
+          line-height: 18px
+          padding: 4px 8px
+          font-size: 12px
 </style>
