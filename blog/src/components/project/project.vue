@@ -33,16 +33,13 @@
         if (ERR_OK === response.errno) {
           this.projects = response.data[0].projects;
           this.$nextTick(() => {
-            console.log('111');
             this._initScroll();
-            console.log('333');
           });
         }
       });
     },
     methods: {
       _initScroll() {
-        console.log('222');
         this.projectScroll = new BScroll(this.$els.projectWrapper, {});
       }
     },
