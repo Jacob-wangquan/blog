@@ -17,11 +17,11 @@ export default {
     };
   },
   methods: {
-    hide() {
-      this.showFlag = false;
-    },
     show() {
       this.showFlag = true;
+    },
+    hide() {
+      this.showFlag = false;
     }
   }
 };

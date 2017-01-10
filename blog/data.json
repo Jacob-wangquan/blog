@@ -1,5 +1,5 @@
 {
-  "article": [
+  "article":
     {
       "name": "FE-tech",
       "type": 1,
@@ -37,46 +37,8 @@
           "introduction": "Vue.js is a library for building interactive web interfaces."
         }
       ]
-    },
-    {
-      "name": "life",
-      "type": 2,
-      "articles": [
-        {
-          "title": "web life",
-          "introduction": "Vue.js is a library for building interactive web interfaces."
-        },
-        {
-          "title": "web life",
-          "introduction": "Vue.js is a library for building interactive web interfaces."
-        },
-        {
-          "title": "web life",
-          "introduction": "Vue.js is a library for building interactive web interfaces."
-        },
-        {
-          "title": "Getting Started",
-          "introduction": "Vue.js is a library for building interactive web interfaces."
-        },
-        {
-          "title": "Getting Started",
-          "introduction": "Vue.js is a library for building interactive web interfaces."
-        },
-        {
-          "title": "Getting Started",
-          "introduction": "Vue.js is a library for building interactive web interfaces."
-        },
-        {
-          "title": "Getting Started",
-          "introduction": "Vue.js is a library for building interactive web interfaces."
-        },
-        {
-          "title": "Getting Started",
-          "introduction": "Vue.js is a library for building interactive web interfaces."
-        }
-      ]
     }
-  ],
+    ,
   "project": [
     {
       "name": "PC",

@@ -1,14 +1,15 @@
 <template>
   <div class="article-wrapper" v-el:article-wrapper>
     <ul class="article-lists">
-      <li v-for="article in articles" class="article-item" @click="selectArt(article, $event)">
-        <p class="title">{{article.title}}</p>
-        <p class="introduction">{{article.introduction}}</p>
+      <li v-for="articlelist in articles" class="article-item" @click="selectArt(articlelist, $event)">
+        <p class="title">{{articlelist.title}}</p>
+        <p class="introduction">{{articlelist.introduction}}</p>
         <split></split>
       </li>
     </ul>
   </div>
   <!--v-bind绑定动态 Props 到父组件的数据。每当父组件的data数据变化时，也会传导给子组件props接收-->
+  <!--调用子组件的方法v-ref-->
   <articlelist :articlelist="selectedArticle" v-ref:articlelist></articlelist>
 </template>
 
@@ -30,7 +31,8 @@
       this.$http.get('./api/article').then((response) => {
         response = response.body;
         if (response.errno === ERR_OK) {
-          this.articles = response.data[0].articles;
+          this.articles = response.data.articles;
+          console.log(this.articles);
           this.$nextTick(() => {
             this._initScroll();
           });
