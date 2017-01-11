@@ -6,7 +6,8 @@
       "articles": [
         {
           "title": "Getting Started 1",
-          "introduction": "Vue.js is a library for building interactive web interfaces."
+          "introduction": "Vue.js is a library for building interactive web interfaces.",
+          "url": "static/markdown/index.html"
         },
         {
           "title": "Getting Started 2 Getting Started 2",

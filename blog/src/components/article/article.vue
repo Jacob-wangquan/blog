@@ -1,7 +1,7 @@
 <template>
   <div class="article-wrapper" v-el:article-wrapper>
     <ul class="article-lists">
-      <li v-for="articlelist in articles" class="article-item" @click="selectArt(articlelist, $event)">
+      <li @click="selectArt(articlelist, $event)" v-for="articlelist in arts.articles" class="article-item" >
         <p class="title">{{articlelist.title}}</p>
         <p class="introduction">{{articlelist.introduction}}</p>
         <split></split>
@@ -23,7 +23,7 @@
   export default {
     data() {
       return {
-        articles: [],
+        arts: {},
         selectedArticle: {}
       };
     },
@@ -31,8 +31,7 @@
       this.$http.get('./api/article').then((response) => {
         response = response.body;
         if (response.errno === ERR_OK) {
-          this.articles = response.data.articles;
-          console.log(this.articles);
+          this.arts = response.data;
           this.$nextTick(() => {
             this._initScroll();
           });
@@ -41,15 +40,15 @@
     },
     methods: {
       _initScroll() {
-        this.articleScroll = new BScroll(this.$els.articleWrapper, {});
+        this.articleScroll = new BScroll(this.$els.articleWrapper, {
+          click: true
+        });
       },
-      selectArt(article, event) {
-        console.log('111');
+      selectArt(articlelist, event) {
         if (!event._constructed) {
           return;
         }
-        console.log('123');
-        this.selectedArticle = article;
+        this.selectedArticle = articlelist;
 //        拿到子组件的方法
         this.$refs.articlelist.show();
       }
