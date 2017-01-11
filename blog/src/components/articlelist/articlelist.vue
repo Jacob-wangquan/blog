@@ -32,6 +32,7 @@
     methods: {
       show() {
         this.showFlag = true;
+//        console.log(markdown.markdown.toHTML('Hello *World*!'));
       },
       hide() {
         this.showFlag = false;

@@ -34,10 +34,6 @@ apiRoutes.get('/project', function (req, res) {
 
 app.use('/api', apiRoutes)
 
-var markdown = require('markdown').markdown
-console.log(markdown.toHTML('Hello *World*!'));
-
-
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {
