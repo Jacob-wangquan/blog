@@ -3,7 +3,7 @@ import App from './App';
 import VueRouter from 'vue-router';
 import VueResource from 'vue-resource';
 import home from 'components/home/home';
-import article from 'components/article/article';
+import blog from 'components/blog/blog';
 import project from 'components/project/project';
 
 import 'common/stylus/index.styl';
@@ -29,8 +29,8 @@ router.map({
   '/home': {
     component: home
   },
-  '/article': {
-    component: article
+  '/blog': {
+    component: blog
   },
   '/project': {
     component: project
@@ -39,4 +39,4 @@ router.map({
 // 调用start， 开始运行
 router.start(app, '#app');
 
-router.go('/home');
+router.go('/blog');

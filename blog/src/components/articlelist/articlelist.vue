@@ -11,28 +11,31 @@
     </div>
     <p class="arctitle">{{articlelist.title}}</p>
     <p class="introduction">introduction:{{articlelist.introduction}}</p>
-    <div class="content">
-
-    </div>
+    <!--<div class="content" v-html="articlelist.text"></div>-->
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+  import markdown from 'markdown';
   export default {
     props: {
       articlelist: {
         type: Object
       }
     },
+    components: {
+      markdown
+    },
     data() {
       return {
-        showFlag: false
+        showFlag: false,
+        tep: ''
       };
     },
     methods: {
       show() {
         this.showFlag = true;
-//        console.log(markdown.markdown.toHTML('Hello *World*!'));
+//        this.tep = markdown.markdown.toHTML('#hello');
       },
       hide() {
         this.showFlag = false;

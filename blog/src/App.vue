@@ -3,11 +3,11 @@
     <v-header>header</v-header>
     <div class="tab border-1px">
       <!--使用指令v-link进行导航-->
+      <!--<div class="tab-item">-->
+        <!--<a v-link="{path:'/home'}">home</a>-->
+      <!--</div>-->
       <div class="tab-item">
-        <a v-link="{path:'/home'}">home</a>
-      </div>
-      <div class="tab-item">
-        <a v-link="{path:'/article'}">article</a>
+        <a v-link="{path:'/blog'}">blog</a>
       </div>
       <div class="tab-item">
         <a v-link="{path:'/project'}">project</a>
