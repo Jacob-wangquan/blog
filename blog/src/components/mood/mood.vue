@@ -4,14 +4,14 @@
       <div class="back" @click="hide">
         <i class="icon-arrow_lift"></i>
       </div>
-      <p class="title">title</p>
+      <p class="title">人生</p>
       <div class="share">
         <span>share</span>
       </div>
     </div>
     <div class="mood-wrapper" v-el:mood-wrapper>
       <ul class="article-lists">
-        <li v-for="articlelist in arts.articles" class="article-item">
+        <li v-for="articlelist in arts" class="article-item">
           <a :href="articlelist.url">
             <p class="title">{{articlelist.title}}</p>
             <p class="introduction">{{articlelist.introduction}}</p>
@@ -30,9 +30,9 @@
 
   export default {
     props: {
-        mood: {
-          type: Object
-        }
+      mood: {
+        type: Object
+      }
     },
     components: {
       split
@@ -47,10 +47,8 @@
       this.$http.get('./api/article').then((response) => {
         response = response.body;
         if (response.errno === ERR_OK) {
-          this.arts = response.data;
-          this.$nextTick(() => {
-            this._initScroll();
-          });
+          this.arts = response.data[1].moods;
+          console.log(this.showFlag + 'out');
         }
       });
     },
@@ -62,6 +60,10 @@
       },
       show() {
         this.showFlag = true;
+        this.$nextTick(() => {
+          this._initScroll();
+          console.log(this.showFlag + 'in');
+        });
       },
       hide() {
         this.showFlag = false;

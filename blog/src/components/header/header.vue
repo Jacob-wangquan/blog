@@ -5,7 +5,7 @@
         <img width="36" height="36" src="timg.jpg">
       </div>
       <div class="about" @click="showDetail">
-        <span>about me</span>
+        <span>关于我</span>
       </div>
     </div>
 

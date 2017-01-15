@@ -4,19 +4,14 @@
       <div class="back" @click="hide">
         <i class="icon-arrow_lift"></i>
       </div>
-      <p class="title">title</p>
+      <p class="title">技术</p>
       <div class="share">
         <span>share</span>
       </div>
     </div>
     <div class="article-wrapper" v-el:article-wrapper>
       <ul class="article-lists">
-        <!--<li @click="selectArt(articlelist, $event)" v-for="articlelist in arts.articles" class="article-item">-->
-        <!--<p class="title">{{articlelist.title}}</p>-->
-        <!--<p class="introduction">{{articlelist.introduction}}</p>-->
-        <!--<split></split>-->
-        <!--</li>-->
-        <li v-for="articlelist in arts.articles" class="article-item">
+        <li v-for="articlelist in arts" class="article-item">
           <a :href="articlelist.url">
             <p class="title">{{articlelist.title}}</p>
             <p class="introduction">{{articlelist.introduction}}</p>
@@ -53,10 +48,7 @@
       this.$http.get('./api/article').then((response) => {
         response = response.body;
         if (response.errno === ERR_OK) {
-          this.arts = response.data;
-          this.$nextTick(() => {
-            this._initScroll();
-          });
+          this.arts = response.data[0].articles;
         }
       });
     },
@@ -68,6 +60,9 @@
       },
       show() {
         this.showFlag = true;
+        this.$nextTick(() => {
+          this._initScroll();
+        });
       },
       hide() {
         this.showFlag = false;
@@ -85,7 +80,7 @@
   left: 0
   top: 0
   bottom: 0
-  z-index: 300
+  z-index: 200
   width: 100%
   background: #fff
   &.move-transition

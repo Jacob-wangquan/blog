@@ -34,13 +34,16 @@
           this.projects = response.data[0].projects;
           this.$nextTick(() => {
             this._initScroll();
+            console.log('hhhh');
           });
         }
       });
     },
     methods: {
       _initScroll() {
-        this.projectScroll = new BScroll(this.$els.projectWrapper, {});
+        this.projectScroll = new BScroll(this.$els.projectWrapper, {
+          click: true
+        });
       }
     },
     components: {

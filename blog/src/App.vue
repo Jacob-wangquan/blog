@@ -7,10 +7,10 @@
         <!--<a v-link="{path:'/home'}">home</a>-->
       <!--</div>-->
       <div class="tab-item">
-        <a v-link="{path:'/blog'}">blog</a>
+        <a v-link="{path:'/blog'}">博文</a>
       </div>
       <div class="tab-item">
-        <a v-link="{path:'/project'}">project</a>
+        <a v-link="{path:'/project'}">项目</a>
       </div>
     </div>
     <!--路由外链  当改变路由时，会刷新router-view改变视图 keep-alive保证切换路由时视图不重新加载-->
